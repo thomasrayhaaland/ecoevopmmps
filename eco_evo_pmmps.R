@@ -164,7 +164,7 @@ popstats <- function(local=NULL,saved=NULL,max.age=10){
 #  nview    : Number of replicates to choose when plotting fewer than all replicates. Default 5.
 #  plot     : Shortnames for the different plots wanted: "all" (default),
 #             "indBVs","indLs","meanBVs","meanLs","popsize","endpopsize","winteruse","agedist","Dest","meancorr","beforecorr","aftercorr",
-#             "EndBVs","EndBVviol","EndLs","EndLiabviol","EndMeans","EndSDs","EndDests","EndDensity",
+#             "EndBVs","EndBVviol","EndLs","EndLiabviol","EndMeans","EndSDs","EndDests","EndDensity","avgBVs","avgBVviol","avgLs","avgLiabviol","avgMeans","avgSDs","avgDests","avgDensity",
 #             "preshockBVs","preshockBVviol","preshockLs","preshockLviol","preshockMeans","preshockSDs","preshockDests","preshockDensity".
 #  pal      : Color palette to use: "vir" (viridis, default), or "dark" (RColorbrewer's Dark2). Both should be colorblind friendly.
 #  legend   : Setting FALSE can suppress some more annoying legends: EndDests, (add more here as they are implemented)
@@ -1053,7 +1053,7 @@ network <- function(x,plot=T,widthscale=10,main=NULL){
 #  v0        Initial additive genetic variance
 #  a0        Initial mean breeding value
 #  popsaved  Whether to initiate simulation with an already saved evolved population. Default FALSE. If TRUE, load the whole simulation output file, using readRDS(), or local file.
-#  ...       Additional arguments, such as size of shocks in further patches if using N>3.
+#  ...       Additional arguments.
 ## Outputs:
 #  A list of 4 elements
 #  [[1]] popstorage: Storage matrix of format:
@@ -1284,7 +1284,7 @@ sim <- function(reps=10,N=3,K=1000,T=5000,m1=rep(0.9,N),m2=c(1/2,1/3,1/5),m3=0.0
             }
           }
           if(!sex){
-            mutants <- sample(fill[1:n_off],round(n_off*mu)) # A subset of newborns mutate their BV. THOUGHT: Since many genes of small effect - mutate more often?
+            mutants <- sample(fill[1:n_off],round(n_off*mu)) # A subset of newborns mutate their BV.
             pop[mutants,1] <- rnorm(length(mutants),pop[mutants,1],m_size)
           }
         } else {
@@ -1483,7 +1483,8 @@ statstmp <- popstats(saved="M:\\Documents\\Migration\\sexresults\\sigma_m2=0.4\\
 saveRDS(statstmp,file="M:\\Documents\\Migration\\sexresults\\sigma_m2=0.4\\No seasonality gradient newstats.R")
 #####
 
-#### Create plots from local environment files ####
+#### Create plots from local environment files (example) ####
+test <- sim()
 statstmp <- popstats(test)
 popplots(local=statstmp, mainfile=test)
 #####
