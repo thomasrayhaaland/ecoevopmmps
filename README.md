@@ -1,5 +1,5 @@
 # README for eco_evo_pmmps.R #
-Code accompanying Haaland et al.: Eco-evolutinary dynamics of partially migratory metapopulations
+Code accompanying Haaland et al.: Eco-evolutionary dynamics of partially migratory metapopulations in spatially and seasonally varying environments
 
 ## Simulation program ##
 The main simulation program begins on line 1087. It requires the preamble (chunk line 1-63) to be run before executing.
@@ -17,7 +17,7 @@ Plotting occurs using popplots function - see line 171 and arguments list above.
 Line 1492-1826 gives examples of code for plotting publication figures.
 
 ## Individual-level databases ##
-Deatiled yearly data is collated into data file using functions create.alldb (line 880) and polish.alldb (line 918). 
+Detailed yearly data is collated into data file using functions create.alldb (line 880) and polish.alldb (line 918). 
 This must be saved as a separate alldb file before using for analyses - see example line 1838.
 Evolutionary dynamics data file are created from alldb using function create.evoldyn - line 1855.
 See further examples of plotting after this.
